@@ -1,0 +1,26 @@
+{
+	"name": "@paroz.io/yakshed",
+	"version": "0.1.0",
+	"description": "A CLI tool to eliminate as many menial decisions as possible when creating a project.",
+	"author": {
+		"name": "Ryan Paroz",
+		"email": "ryan@paroz.io"
+	},
+	"keywords": [
+		"cli",
+		"yakshed"
+	],
+	"prettier": {
+		"arrowParens": "always",
+		"semi": true,
+		"trailingComma": "all",
+		"useTabs": true
+	},
+	"devDependencies": {
+		"prettier": "~2.1.1",
+		"yarn": "^2.0.0-rc.27"
+	},
+	"engines": {
+		"node": ">=12"
+	}
+}
