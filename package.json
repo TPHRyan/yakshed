@@ -1,26 +1,72 @@
 {
 	"name": "@paroz.io/yakshed",
-	"version": "0.1.0",
 	"description": "A CLI tool to eliminate as many menial decisions as possible when creating a project.",
+	"version": "0.1.0",
+	"bin": "./bin/run",
+	"homepage": "https://github.com/TPHRyan/yakshed",
+	"bugs": "https://github.com/TPHRyan/yakshed/issues",
+	"license": "GPL-3.0-only",
 	"author": {
-		"name": "Ryan Paroz",
+		"name": "Ryan Paroz @TPHRyan",
 		"email": "ryan@paroz.io"
 	},
 	"keywords": [
 		"cli",
+		"oclif",
 		"yakshed"
 	],
+	"main": "lib/index.js",
+	"files": [
+		"/bin",
+		"/lib",
+		"/npm-shrinkwrap.json",
+		"/oclif.manifest.json"
+	],
+	"scripts": {
+		"lint": "eslint . --ext .ts --config .eslintrc",
+		"postpack": "rm -f oclif.manifest.json",
+		"prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+		"test": "bash ./bin/test.sh",
+		"version": "oclif-dev readme && git add README.md"
+	},
+	"dependencies": {
+		"@oclif/command": "^1.8.0",
+		"@oclif/config": "TPHRyan/oclif-config#feature/plugin-loading-yarn-2",
+		"@oclif/errors": "^1.3.3",
+		"@oclif/plugin-help": "^3.2.0",
+		"tslib": "^1.13.0"
+	},
+	"devDependencies": {
+		"@oclif/dev-cli": "^1.22.2",
+		"@types/node": "^12.12.54",
+		"@typescript-eslint/eslint-plugin": "^3.10.1",
+		"@typescript-eslint/parser": "^3.10.1",
+		"eslint": "^7.7.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"globby": "^11.0.1",
+		"prettier": "^2.1.1",
+		"ts-node": "^9.0.0",
+		"typescript": "^4.0.2",
+		"yarn": "^2.0.0-rc.27"
+	},
+	"engines": {
+		"node": ">=12"
+	},
+	"oclif": {
+		"commands": "./lib/commands",
+		"bin": "yakshed",
+		"plugins": [
+			"@oclif/plugin-help"
+		]
+	},
 	"prettier": {
 		"arrowParens": "always",
 		"semi": true,
 		"trailingComma": "all",
 		"useTabs": true
 	},
-	"devDependencies": {
-		"prettier": "~2.1.1",
-		"yarn": "^2.0.0-rc.27"
-	},
-	"engines": {
-		"node": ">=12"
-	}
+	"repository": "TPHRyan/yakshed",
+	"types": "lib/index.d.ts"
 }
